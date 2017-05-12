@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Chosen</title>
+
+	<meta name="viewport" content="width=device-width">
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="img/apple-touch-icon-precomposed.png">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+	
+	<link rel="stylesheet" type="text/css" href="jquery.fullPage.css" />
+	<link rel="stylesheet" href="css/animate.css" type="text/css">
+	<link rel="stylesheet" href="css/normalize.css" type="text/css">
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<!-- This following line is needed only in case of using other easing effect rather than "linear", "swing" or "easeInQuart". You can also add the full jQuery UI instead of this file if you prefer -->
+	<script src="vendors/jquery.easings.min.js"></script>
+	<!-- This following line needed in the case of using the plugin option `scrollOverflow:true` -->
+	<script type="text/javascript" src="vendors/jquery.slimscroll.min.js"></script>
+	<script type="text/javascript" src="jquery.fullPage.js"></script>
+
+	<script>
+	$(document).ready(function() {
+	    $('#fullpage').fullpage({
+	        //Navigation
+	        menu: false,
+	        anchors:['Chosen', 'Stars-are-not-born', 'Everyone-Competes', 'Let-Your-Talent-Shine', 'Key-Features', 'Demo-Video'],
+	        navigation: true,
+	        navigationPosition: 'right',
+	        slidesNavigation: true,
+	        slidesNavPosition: 'bottom',
+
+	        //Scrolling
+	        css3: true,
+	        scrollingSpeed: 700,
+	        autoScrolling: true,
+	        fitToSection: true,
+	        scrollBar: false,
+	        easing: 'easeInOutCubic',
+	        easingcss3: 'ease',
+	        loopBottom: false,
+	        loopTop: false,
+	        loopHorizontal: true,
+	        continuousVertical: false,
+	        normalScrollElements: '#element1, .element2',
+	        scrollOverflow: true,
+	        touchSensitivity: 15,
+	        normalScrollElementTouchThreshold: 5,
+
+	        //Accessibility
+	        keyboardScrolling: true,
+	        animateAnchor: true,
+	        recordHistory: true,
+
+	        //Design
+	        controlArrows: true,
+	        verticalCentered: false,
+	        resize : false,
+	        paddingTop: '0em',
+	        paddingBottom: '0px',
+	        fixedElements: '#download-but, .footer',
+	        responsive: 0,
+
+	        //Custom selectors
+	        sectionSelector: '.section',
+	        slideSelector: '.slide',
+
+	        //events
+	        onLeave: function(index, nextIndex, direction){
+	        	var loadedSection = $(this);
+
+	            //using index
+	            if(index == 5 && direction =='down'){
+	            	$('#download-but').addClass('hide');
+	            	$('#download-but').removeClass('show');
+	            } 
+	            if(index == 6 && direction =='up'){
+	            	$('#download-but').addClass('show');
+	            	$('#download-but').removeClass('hide');
+	            }
+	             
+	           if (nextIndex >1) {
+	            	$('#slide-1 .copy').addClass('animated rotateInUpRight fadeIn');
+	            	$('#slide-1 .graphic').addClass('animated bounceInRight');
+	            	
+	            	$('#slide-1 .heart-left').addClass('animated slideInLeft');
+	            	$('#slide-1 .heart-right').addClass('animated slideInRight');
+	            	
+	            	$('#slide-2 .copy').addClass('animated rotateInUpLeft fadeIn');
+	            	$('#slide-2 .graphic').addClass('animated bounceInLeft');
+	            	
+	            	$('#slide-2 .heart-left').addClass('animated slideInLeft');
+	            	$('#slide-2 .heart-right').addClass('animated slideInRight');
+	            	
+	            	$('#slide-3 .copy').addClass('animated rotateInUpRight fadeIn');
+	            	$('#slide-3 .graphic').addClass('animated bounceInRight');           	
+
+	            	$('#slide-3 .heart-left').addClass('animated slideInLeft');
+	            	$('#slide-3 .heart-right').addClass('animated slideInRight');
+	            	
+	            	$('#slide-4 .copy').addClass('animated rotateInUpLeft fadeIn');
+	            	$('#slide-4 .graphic').addClass('animated bounceInLeft');
+	            	
+	            	$('#slide-4 .heart-left').addClass('animated slideInLeft');
+	            	$('#slide-4 .heart-right').addClass('animated slideInRight');
+	           }
+	       
+	            
+	            if(index == 5 && direction =='down'){
+	            	
+	            	$('#download-but-footer').addClass('animated shake');
+	            	
+	            }
+
+	        },
+	        afterLoad: function(anchorLink, index){
+	        	var loadedSection = $(this);
+
+	            //using index
+	            if(index == 6){
+	            	$('#download-but').addClass('hide');
+	            	$('#download-but').removeClass('show');
+	            } 
+	            else {
+	            	$('#download-but').addClass('show');
+	            	$('#download-but').removeClass('hide');
+	            }
+	            
+	            if(index == 1){
+	            	$('#slide-1 .copy').removeClass('animated rotateInUpRight fadeIn');
+	            	$('#slide-1 .graphic').removeClass('animated bounceInRight');
+	            	$('#slide-1 .heart-left').removeClass('animated slideInLeft');
+	            	$('#slide-1 .heart-right').removeClass('animated slideInRight');
+	            }
+	            
+	            if(index == 2){
+	            	$('#slide-2 .copy').removeClass('animated rotateInUpLeft fadeIn');
+	            	$('#slide-2 .graphic').removeClass('animated bounceInLeft');
+	            	$('#slide-2 .heart-left').removeClass('animated slideInLeft');
+	            	$('#slide-2 .heart-right').removeClass('animated slideInRight');
+	            }
+	            
+	            if(index == 3){	            	
+	            	$('#slide-3 .copy').removeClass('animated rotateInUpRight fadeIn');
+	            	$('#slide-3 .graphic').removeClass('animated bounceInRight');
+	            	$('#slide-3 .heart-left').removeClass('animated slideInLeft');
+	            	$('#slide-3 .heart-right').removeClass('animated slideInRight');
+	            }
+	            
+	            if(index == 4){
+	            	$('#slide-4 .copy').removeClass('animated rotateInUpLeft fadeIn');
+	            	$('#slide-4 .graphic').removeClass('animated bounceInLeft');
+	            	$('#slide-4 .heart-left').removeClass('animated slideInLeft');
+	            	$('#slide-4 .heart-right').removeClass('animated slideInRight');
+	            }
+	            
+	            if(index == 5){
+	            	$('#download-but-footer').removeClass('animated shake');
+	            }
+	            
+	        },
+	        afterRender: function(){},
+	        afterResize: function(){},
+	        afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex){},
+	        onSlideLeave: function(anchorLink, index, slideIndex, direction){}
+	    });
+	});
+	
+	$(document).on('click', '#video-demo', function (e) {
+	    var video = $(this).get(0);
+	    if (video.paused === false) {
+	        video.pause();
+	    } else {
+	        video.play();
+	    }
+
+	    return false;
+	});		
+	
+	(function(){
+	    var timer, count=1;
+	    function transition(){
+	        clearTimeout(timer);
+
+	        switch(count){
+	            case 1: count = 2; break;
+	            case 2: count = 3; break;
+	            case 3: count = 1; break;
+	        }
+			$('#clip-image').attr("xlink:href", 'images/video-' + count + '.gif');
+
+	        timer = setTimeout(transition, 9000);
+	    }
+	    transition();
+	})();
+	
+	
+	</script>
+</head>
+<body>
+<div id="fullpage">
+	<div id="download-but">		
+		<a class="download" href="https://itunes.apple.com/"><span class="icon-apple-icon"></span>Download Mobile App</a>
+		<div class="icon-arrow-down-icon"></div>
+	</div>
+	
+	<div id="content-wrapper">
+	  	
+		<section id="teaser" class="section">
+			<div class="section-content">
+				<div class="fullwidth">
+                 
+					<div class="copy">
+						<div class="logo">
+							<h1>CHOSEN</h1>	
+							<!--<div class="logo-clip variation2">
+                            	
+							</div>-->
+                         <svg viewBox="250 0 500 270" x="0">
+								<defs>
+								<path fill="none" id="thePath" d="M991.5,194.6c3.5-9.4,5.3-19.5,5.3-30.1c0-49.4-41.3-89.5-92.2-89.5c-41.6,0-76.8,26.8-88.3,63.5
+				C804.9,101.8,769.8,75,728.2,75c-23.8,0-45.5,8.8-61.9,23.2c-16.4-14.4-38.1-23.2-62-23.2c-34.1,0-63.9,18-79.9,44.8
+				c-16.3-25.3-45.2-42.1-78.2-42.1c-42.9,0-79,28.4-89.3,67c-9.3-39.8-46-69.6-89.9-69.6V12.7h-84.3v115.4c-0.5,1-0.9,2-1.3,3
+				C167.8,98.2,134.6,75,95.8,75c-50.9,0-92.2,40.1-92.2,89.5S44.9,254,95.8,254c38.8,0,72-23.2,85.6-56.2c0.4,1,0.9,2,1.3,3v50.5
+				h62.1c7.1,1.7,14.5,2.6,22.1,2.6c10.8,0,21.2-1.8,30.9-5.2h61.3V197c12.7,34.8,46.8,59.7,87,59.7c27,0,51.4-11.3,68.2-29.3
+				c13.5,14.7,33.4,24.1,55.6,24.1c35.2,0,64.7-23.4,72-54.8c13.3,33.6,46.8,57.4,86.1,57.4c35.4,0,66.2-19.4,81.6-47.9v45.3h72.7
+				c7.1,1.7,14.5,2.6,22.1,2.6c7.6,0,15-0.9,22.1-2.6h64.7v-56.9H991.5z"/>
+								</defs>
+							  <clipPath id="cloudClip">
+								<use xlink:href="#thePath"/>
+							  </clipPath>
+							  <image x="0" id="clip-image" clip-path="url(#cloudClip)" width="1080" height="408" xlink:href="images/video-2.gif" ></image>
+							  
+							</svg> 
+                            
+						</div>
+                                                 
+                           
+						<h2>Where Fame Is The Game</h2>	
+					</div>
+					
+				</div>
+				<div class="download-but-mobile">		
+						<a class="download" href="https://itunes.apple.com/"><span class="icon-apple-icon"></span>Download Mobile App</a>		
+				</div>
+			</div>
+		
+		</section>
+		<section id="slide-1" class="section">
+			<div class="heart-left"></div>
+			<div class="heart-right"></div>	
+			<div class="heart-over">				
+				<div class="section-content">
+					<div class="right-part half graphic">
+					</div>
+					<div class="left-part half copy-part">
+						<div class="copy">
+							<h2>Stars are not born</h2>
+							<p>Chosen is the first video talent competition that anyone can play. For the first time ever, spectators can act as judges and compete alongside performers for the ultimate chance to become a star.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>	
+		<section id="slide-2" class="section">		
+			<div class="heart-left"></div>
+			<div class="heart-right"></div>	
+			<div class="heart-over">
+				<div class="section-content">
+					<div class="left-part half graphic">
+					</div>
+					<div class="right-part half copy-part">
+						<div class="copy">
+							<h2>Everyone Competes</h2>
+							<p>Unlike other mobile performance apps or TV talent shows, everyone on Chosen competes - whether you’re the next pop process, karaoke ninja, or a tastemaker with a knack for spotting talent.</p>
+						</div>
+					</div>	
+				</div>
+			</div>			
+		</section>
+		<section id="slide-3" class="section">		
+			<div class="heart-left"></div>
+			<div class="heart-right"></div>	
+			<div class="heart-over">
+				<div class="section-content">				
+					<div class="right-part half graphic">
+					</div>
+					<div class="left-part half copy-part">
+						<div class="copy">
+							<h2>Let Your Talent Shine</h2>
+							<p>Be a judge and compete for status and rewards. As a performer, record or upload your performance to share your talent with the world. Whether you're a performer or judge, quickly work your way up the ranks for the ultimate chance to win big.</p>
+						</div>
+					</div>
+				</div>
+			</div>				
+		</section>
+		<section id="slide-4" class="section">		
+			<div class="heart-left"></div>
+			<div class="heart-right"></div>	
+			<div class="heart-over">
+				<div class="section-content">
+					<div class="left-part half graphic">
+					</div>
+					<div class="right-part half copy-part">
+						<div class="copy">
+							<h2>Key Features:</h2>
+							<ul>
+								<li>Easy to use, professional quality audio and video recording tools</li>
+								<li>State-of-the-art video karaoke</li>
+								<li>Leaderboard positioning, points, and badges</li>
+								<li>Built-in sharing tools</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>				
+		</section>	
+        <section id="slide-5" class="section">		
+			<div class="section-content">
+				<div class="left-part third">
+					<div class="copy">
+						<h2>Meet Chosen</h2>
+					</div>						
+				</div>
+				<div class="middle-part third demo-video">
+					<div class="demo-container">
+						<video id="video-demo" style="width:245px; height:435px;" width="245" height="435" src="images/demo-video.mp4" type="video/mp4" 
+							poster="images/demo-thumb.png" preload="auto" >
+						</video>
+					</div>
+				</div>
+				<div class="right-part third">				
+					<div class="copy">
+						<p>The fast-paced and addictive video competition platform for sharing your talent with the world.</p>
+					</div>
+				</div>			
+				<div id="download-but-footer">		
+					<a class="download" href="https://itunes.apple.com/"><span class="icon-apple-icon"></span>Download Mobile App</a>					
+				</div>
+			</div>
+            <footer>				
+				<div class="footer-menus">
+						<ul class="social-menu menu">
+							<li><a href="http://facebook.com/chosenfm" class="icon-facebook-icon" target="_blank"></a></li>
+							<li><a href="https://twitter.com/chosen" class="icon-twitter-icon" target="_blank"></a></li>
+							<li><a href="https://youtube.com/chosenfm" class="icon-youtube-icon" target="_blank"></a></li>
+							<li><a href="http://instagram.com/chosenapp" class="icon-instagram-icon" target="_blank"></a></li>
+							<li><a href="https://vine.co/chosen" class="icon-vine-icon" target="_blank"></a></li>
+						</ul>
+						<ul class="footer-menu menu">
+							<li><a href="">About Us</a></li>
+							<li><a href="">Blog</a></li>
+							<li><a href="">Contact Us</a></li>
+							<li><a href="">Terms and Conditions</a></li>
+							<li><a href="">Privacy</a></li>
+							<li><a href="">Careers</a></li>
+						</ul>
+					</div>
+					<ul class="bottom-menu menu">
+						<li><a href="https://itunes.apple.com/" class="app-store">Available on App Store</a></li>
+						<li><a href="#Chosen" class="chosen-bottom">Chosen</a></li>
+					</ul>	
+					<div class="icon-arrow-up-icon"></div>			
+				</footer>			
+		</section>	
+		
+			
+	</div>	
+</body>
+</html>
